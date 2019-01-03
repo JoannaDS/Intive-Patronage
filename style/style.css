@@ -203,18 +203,12 @@ footer {
     0 3px 14px 2px rgba(1, 8, 20, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
     0 3px 14px 2px rgba(1, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-  -webkit-transform: scale(0.99);
-  transform: scale(0.8);
-  -webkit-transition: -webkit-transform 0.28s ease-in-out;
-  transition: -webkit-transform 0.28s ease-in-out;
-  transition: transform 0.28s ease-in-out;
-  transition: transform 0.28s ease-in-out, -webkit-transform 0.28s ease-in-out;
-  z-index: -1;
+box-sizing: border-box;
 }
 form {
   padding: 20px;
 }
-input,
+input ,
 textarea {
   width: 100%;
   padding: 12px 5px;
@@ -222,6 +216,13 @@ textarea {
   box-sizing: border-box;
   border: none;
   border-bottom: 2px solid #b6b6b6;
+  
+}
+.label-name{
+  float:left;
+}
+.label.name  :hover{
+  color:#4577d1
 }
 .button {
   color: white;
