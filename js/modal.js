@@ -58,6 +58,7 @@ const onModalFormSubmit = modal => {
   addHero(heroFormObjValues);
   renderHeroListView();
   hideModal(modal);
+  heroFormElements.reset();
 };
 
 const attachHeroFormListeners = () => {

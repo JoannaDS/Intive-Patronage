@@ -13,6 +13,7 @@ body {
 header {
   margin-bottom: 30px;
 }
+
 /* navigation */
 .navbar {
   width: 100%;
@@ -52,9 +53,19 @@ header {
   margin-top: 10px;
   width: 40%;
 }
+
 .logo img {
   max-width: 100%;
   height: auto;
+}
+
+#hamburgericon {
+  width: 5%;
+  float: right;
+}
+
+#hamburgericon:hover {
+  width: 6%;
 }
 
 .navbar-toggle {
@@ -114,7 +125,165 @@ footer {
   clear: both;
 }
 
-/*media queries*/
+
+
+/* dodaj herosa */
+.form-display {
+  position: relative;
+  width: 100%;
+  max-width: 30rem;
+  margin: 5rem auto;
+  background: #fff;
+  padding: 2rem 5rem 0;
+  text-align: center;
+  -webkit-box-shadow: 0 8px 10px 1px rgba(1, 8, 20, 0.14),
+    0 3px 14px 2px rgba(1, 8, 20, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(1, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+form {
+  padding: 20px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #b6b6b6;
+}
+
+.label-name {
+  float: left;
+}
+
+.label.name :hover {
+  color: #4577d1;
+}
+
+.button {
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px,
+    rgba(0, 0, 0, 0.1) 0px 1px 0px 0px inset;
+  width: 50%;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  background: #4f93ce;
+
+  border-radius: 2px;
+  padding: 14px 0px;
+}
+
+.delete-basket-button,
+.basket-button {
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px,
+    rgba(0, 0, 0, 0.1) 0px 1px 0px 0px inset;
+  width: 30%;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  background: #4f93ce;
+  margin-top: 20px;
+  border-radius: 2px;
+  padding: 14px 0px;
+}
+
+.button:hover,
+.delete-basket-button:hover,
+.basket-button:hover {
+  background-color: #66b3ff;
+}
+
+.submission-field {
+  padding: 30px;
+}
+
+/* modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 20px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.modal-form {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-container {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-container img {
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#description {
+  margin-bottom: 10px;
+}
+
+.hero[data-available="false"] {
+  opacity: 0.5;
+
+}
+
+#basket-region {
+  text-align: center;
+  -webkit-box-shadow: 0 8px 10px 1px rgba(1, 8, 20, 0.14),
+    0 3px 14px 2px rgba(1, 8, 20, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(1, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+
+}
+
+#basket-region img {
+  width: 20%;
+
+}
+
+/* media queries */
 
 @media screen and (min-width: 761px) {
   .navbar {
@@ -131,9 +300,11 @@ footer {
     justify-content: flex-end;
     background-color: transparent;
   }
+
   .main-nav ul {
     padding-left: 30px;
   }
+
   .main-nav li {
     display: inline-block;
     padding: 10px 10px 10px 0;
@@ -144,6 +315,7 @@ footer {
     font-weight: 400;
     box-sizing: border-box;
   }
+
   .main-nav li:last-child {
     border-right: none;
   }
@@ -166,14 +338,21 @@ footer {
     width: 45%;
     float: left;
   }
+
   .hero-display {
     padding-left: 15px;
   }
+
+  .modal-container img {
+    width: 30%;
+  }
 }
+
 @media (min-width: 1025px) {
   .navbar {
     padding: 40px;
   }
+
   .hero-display {
     width: 1025px;
   }
@@ -181,113 +360,22 @@ footer {
   .hero {
     width: 30%;
   }
+
   .main-nav li {
     font-size: 16px;
   }
+
   .nav-links {
     margin-left: 10px;
     margin-right: 10px;
   }
-}
 
-/* dodaj herosa */
-.form-display {
-  position: relative;
-  width: 100%;
-  max-width: 30rem;
-  margin: 5rem auto;
-  background: #fff;
-  padding: 2rem 5rem 0;
-  text-align: center;
-  -webkit-box-shadow: 0 8px 10px 1px rgba(1, 8, 20, 0.14),
-    0 3px 14px 2px rgba(1, 8, 20, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
-    0 3px 14px 2px rgba(1, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-}
-form {
-  padding: 20px;
-}
-input,
-textarea {
-  width: 100%;
-  padding: 12px 5px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 2px solid #b6b6b6;
-}
-.label-name {
-  float: left;
-}
-.label.name :hover {
-  color: #4577d1;
-}
-.button {
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px,
-    rgba(0, 0, 0, 0.1) 0px 1px 0px 0px inset;
-  width: 50%;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  text-align: center;
-  position: relative;
-  background: #4f93ce;
+  .modal {
+    padding-top: 80px;
+  }
 
-  border-radius: 2px;
-  padding: 14px 0px;
-}
-.button:hover {
-  background-color: #66b3ff;
-}
+  .modal-container img {
+    width: 30%;
+  }
 
-.submission-field {
-  padding: 30px;
-}
-
-/* modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 400px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-form {
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-container {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
 }

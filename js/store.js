@@ -1,39 +1,45 @@
 const defaultHeroesList = {
-  "data-1": {
+  "hero-1": {
     name: "Harley",
     price: 150,
     img: "harley.jpg",
-    desc: "lorem ipsum....."
+    desc: "lorem ipsum.....",
+    isAvailable: true
   },
-  "data-2": {
+  "hero-2": {
     name: "Wonder Woman",
     price: 800,
     img: "wonderwoman.jpg",
-    desc: "lorem ipsum....."
+    desc: "lorem ipsum.....",
+    isAvailable: true
   },
-  "data-3": {
+  "hero-3": {
     name: "Batman",
     price: 450,
     img: "batman.jpg",
-    desc: "lorem ipsum....."
+    desc: "lorem ipsum.....",
+    isAvailable: true
   },
-  "data-4": {
+  "hero-4": {
     name: "Ledman",
     price: 4000,
     img: "ledman.jpg",
-    desc: "lorem ipsum....."
+    desc: "lorem ipsum.....",
+    isAvailable: false
   },
-  "data-5": {
+  "hero-5": {
     name: "Neptun",
     price: 9000,
     img: "neptun.jpg",
-    desc: "lorem ipsum....."
+    desc: "lorem ipsum.....",
+    isAvailable: true
   },
-  "data-6": {
+  "hero-6": {
     name: "Spiderman",
     price: 6000,
     img: "spiderman.jpg",
-    desc: "lorem ipsum....."
+    desc: "lorem ipsum.....",
+    isAvailable: false
   }
 };
 
@@ -47,12 +53,13 @@ const prepareCreateHeroData = heroForm => ({
   name: heroForm.name.value,
   price: heroForm.price.value,
   img: heroForm.photo.value,
-  desc: "desc"
+  desc: "desc",
+  isAvailable: heroForm.isavailable.checked
 });
 
 const addHero = hero => {
   const heroIndex = Object.keys(window.appStore.heroesList).length + 1;
-  window.appStore.heroesList[`data-${heroIndex}`] = hero;
+  window.appStore.heroesList[`hero-${heroIndex}`] = hero;
 };
 
 const loadMockHeroes = event => {

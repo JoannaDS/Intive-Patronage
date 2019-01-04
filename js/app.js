@@ -1,4 +1,3 @@
-/// STORE
 function attachMenuListeners() {
   const addHeroButton = document.getElementById("addHero-button");
   const loadHeroesButton = document.getElementById("loadHeroes-button");
@@ -20,12 +19,12 @@ function attachMenuListeners() {
     clearStore();
   });
 
-  navBarToggle.addEventListener("click", function() {
+  navBarToggle.addEventListener("click", function () {
     mainNav.classList.toggle("active");
   });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   attachMenuListeners();
   renderHeroListView();
 });

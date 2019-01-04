@@ -6,10 +6,10 @@ const renderBasketView = () => {
 
   const basketElementsCount = Object.keys(window.appStore.basketItems).length;
 
+
   if (basketElementsCount === 1) {
     basketDisplay.style.display = "block";
   }
-
   const htmlToRender = Object.keys(window.appStore.basketItems)
     .map(id => {
       const basketItem = window.appStore.basketItems[id];
@@ -38,7 +38,6 @@ const attachBasketListeners = () => {
 
   Array.from(deleteButtons).map(button => {
     button.addEventListener("click", () => {
-      console.log("lo");
       removeFromBasket(button.dataset.id);
     });
   });
@@ -49,7 +48,7 @@ const addToBasket = (modal, dataId) => {
 
   if (!isAlreadyInBasket) {
     window.appStore.basketItems[dataId] = window.appStore.heroesList[dataId];
-    window.appStore.basketPrice = parseInt(window.appStore.basketPrice) + window.appStore.heroesList[dataId].price;
+    window.appStore.basketPrice = parseInt(window.appStore.basketPrice) + parseInt(window.appStore.heroesList[dataId].price)
 
     renderBasketView();
     updateBasketPriceView();
@@ -65,6 +64,7 @@ const removeFromBasket = dataId => {
   delete window.appStore.basketItems[dataId];
 
   const basketElementsCount = Object.keys(window.appStore.basketItems).length;
+
 
   if (basketElementsCount === 0) {
     basketDisplay.style.display = "none";

@@ -7,7 +7,7 @@ function renderHeroListView() {
     .map(id => {
       const hero = window.appStore.heroesList[id];
       const template = `
-      <div class="hero" data-id="${id}">
+      <div class="hero" data-id="${id}" data-available="${hero.isAvailable}">
         <div>
           <img src="images/heroes/${hero.img}" alt="${hero.name}">
         </div>
@@ -29,11 +29,16 @@ function attachHeroListeners() {
   const heroes = heroesListRegion.querySelectorAll(".hero");
   const heroModal = document.getElementById("heroModal");
 
-  Array.from(heroes).map(hero => {
-    hero.addEventListener("click", () => {
-      showHeroModal(heroModal, hero.dataset.id);
+  Array.from(heroes)
+    .map(hero => {
+      hero.addEventListener("click", () => {
+        if (hero.dataset.available === 'true') {
+          showHeroModal(heroModal, hero.dataset.id);
+        } else {
+          alert('Heros jest wypożyczony!')
+        }
+      });
     });
-  });
 }
 
 function clearHeroesList() {
