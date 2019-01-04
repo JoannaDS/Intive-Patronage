@@ -12,27 +12,30 @@
       <form>
         <h1>Dodaj Herosa</h1>
         <div class="form-field">
-          <label class="label-name">Nazwa Bohatera</label>
+          <label class="label-name" for="name">Nazwa Bohatera</label>
           <input type="text" name="name" />
         </div>
         <div class="form-field">
-            <label class="label-name">Adres/ nazwa zdjęcia</label>
+            <label class="label-name" for="photo">Adres/ nazwa zdjęcia</label>
           <input type="text" name="photo" />
         </div>
         <div class="form-field">
-            <label class="label-name">Cena wynajmu /h</label>
+            <label class="label-name" for="price">Cena wynajmu /h</label>
           <input type="text" name="price" />
        
         </div>
         <div class="form-field">
-            <label class="label-name">Opis Bohatera</label>
+            <label class="label-name" for="textarea">Opis Bohatera</label>
           <textarea ></textarea>
         </div>
       </form>
       
       <div class="submission-field">
-        <button class="button" type="button"><span>Submit</span></button>
+        <button class="button" type="button"id="submitHero-button"><span>Submit</span></button>
       </div>
     </div>
+    <script src="js/app.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/createAhero.js"></script>
   </body>
 </html>
