@@ -1,105 +1,67 @@
-var heroesList = [];
+const defaultHeroesList = {
+  "data-1": {
+    name: "Harley",
+    price: 150,
+    img: "harley.jpg",
+    desc: "lorem ipsum....."
+  },
+  "data-2": {
+    name: "Wonder Woman",
+    price: 800,
+    img: "wonderwoman.jpg",
+    desc: "lorem ipsum....."
+  },
+  "data-3": {
+    name: "Batman",
+    price: 450,
+    img: "batman.jpg",
+    desc: "lorem ipsum....."
+  },
+  "data-4": {
+    name: "Ledman",
+    price: 4000,
+    img: "ledman.jpg",
+    desc: "lorem ipsum....."
+  },
+  "data-5": {
+    name: "Neptun",
+    price: 9000,
+    img: "neptun.jpg",
+    desc: "lorem ipsum....."
+  },
+  "data-6": {
+    name: "Spiderman",
+    price: 6000,
+    img: "spiderman.jpg",
+    desc: "lorem ipsum....."
+  }
+};
 
-function prepareCreateHeroData (heroForm) {
-    return {
-        name: heroForm.name.value,
-        price: heroForm.price.value,
-        img: heroForm.photo.value,
-        desc: 'desc'
-    };
-}
+window.appStore = {
+  heroesList: defaultHeroesList,
+  basketItems: {},
+  basketPrice: 0
+};
 
-function addHero (hero) {
-    heroesList.push(hero);
-    
-    saveToLocalStorage();
-}
+const prepareCreateHeroData = heroForm => ({
+  name: heroForm.name.value,
+  price: heroForm.price.value,
+  img: heroForm.photo.value,
+  desc: "desc"
+});
 
-function removeHero(heroName) {
-    var newHeroesList = [];
+const addHero = hero => {
+  const heroIndex = Object.keys(window.appStore.heroesList).length + 1;
+  window.appStore.heroesList[`data-${heroIndex}`] = hero;
+};
 
-    heroesList.forEach(function (hero) {
-        if (heroName !== hero.name) {
-            newHeroesList.push(hero);
-        }
-    });
+const loadMockHeroes = event => {
+  event.preventDefault();
+  window.appStore.heroesList = defaultHeroesList;
+  renderHeroListView();
+};
 
-    heroesList = newHeroesList;
-
-    saveToLocalStorage();
-    clearRegions();
-    showHeroListView();
-}
-
-function loadMockHeroes () {
-    var mockHeroesList = [
-        {
-            name: "Harley",
-            price: 150,
-            img: 'harley.jpg',
-            desc: 'lorem ipsum.....'
-        },
-        {
-            name: "Wonder Woman",
-            price: 800,
-            img: 'wonderwoman.jpg',
-            desc: 'lorem ipsum.....'
-        },
-        {
-            name: "Batman",
-            price: 450,
-            img: 'batman.jpg',
-            desc: 'lorem ipsum.....'
-        },
-        {
-            name: "Ledman",
-            price: 4000,
-            img: 'ledman.jpg',
-            desc: 'lorem ipsum.....'
-        },
-        {
-            name: "Neptun",
-            price: 9000,
-            img: 'neptun.jpg',
-            desc: 'lorem ipsum.....'
-        },
-        {
-            name: "Spiderman",
-            price: 6000,
-            img: 'spiderman.jpg',
-            desc: 'lorem ipsum.....'
-        }
-    ];
-
-    heroesList = heroesList.concat(mockHeroesList);
-    saveToLocalStorage();
-    clearRegions();
-    showHeroListView();
-}
-
-function clearHeroesList () {
-    heroesList = [];
-    saveToLocalStorage();
-    clearRegions();
-    showHeroListView();
-}
-// local storage functions
-function saveToLocalStorage () {
-    var listToObject = { data: heroesList },
-        heroesString = JSON.stringify(listToObject);
-
-    localStorage.setItem('heroesList', heroesString)
-}
-
-function loadFromLocalStorage () {
-    var localStorageData = localStorage.getItem('heroesList'),
-        parsedLocalStorageData;
-
-    if (!localStorageData) {
-        parsedLocalStorageData = {data: []}
-    } else {
-        parsedLocalStorageData = JSON.parse(localStorageData);
-    }
-
-    heroesList = parsedLocalStorageData.data;
-}
+const clearStore = () => {
+  clearHeroesList();
+  clearBasket();
+};

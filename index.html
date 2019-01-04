@@ -1,131 +1,92 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Patronage- Herosi</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1">
-    <link href="style/normalize.css" rel="stylesheet">
-    <link href="style/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1" />
+    <link href="style/normalize.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
 
-
-</head>
-
-<body>
+  <body>
     <div class="page-wrapper">
-        <header>
-            <nav class="navbar">
+      <header>
+        <nav class="navbar">
+          <div class="navbar-toggle" id="hamburger-toggle"><i class="fa fa-bars"></i></div>
+          <a href="index.html" class="logo"><img src="images/logo.png" alt="logo" /></a>
+          <ul class="main-nav" id="js-menu">
+            <li><a href="" id="addHero-button" class="nav-links">Dodaj Herosa</a></li>
+            <li><a href="" class="nav-links">Edytuj Herosa</a></li>
+            <li><a href="" id="removeHero-button" class="nav-links">Usuń Herosa</a></li>
+            <li><a href="" id="clearHeroesList-button" class="nav-links">Wyczyść bazę</a></li>
+            <li><a href="" id="loadHeroes-button" class="nav-links">Wczytaj Herosów</a></li>
+          </ul>
+        </nav>
 
-                <div class="navbar-toggle" id="hamburger-toggle">
-                    <i class="fa fa-bars"></i>
-                </div>
-                <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
-                <ul class="main-nav" id="js-menu">
-                    <!-- <li><a href="dodaj-herosa.html" class="nav-links" id="addHero-button" >Dodaj Herosa</a></li>
-                    <li><a href="#" class="nav-links">Edytuj Herosa</a></li>
-                    <li><a href="#" class="nav-links">Usuń Herosa</a></li>
-                    <li><a href="#" class="nav-links">Wyczyść bazę</a></li>
-                    <li><a href="#" class="nav-links" id="loadMockHeroes-button">Wczytaj Herosów</a></li> -->
-                    <li><a href="" id="addHero-button" class="nav-links">Dodaj Herosa</a></li>
-				      <li><a href=""class="nav-links">Edytuj Herosa</a></li>
-				      <li><a href="" id="removeHero-button"class="nav-links">Usuń Herosa</a></li>
-				      <li><a href="" id="clearHeroesList-button"class="nav-links">Wyczyść bazę</a></li>
-				      <li><a href="" id="loadMockHeroes-button"class="nav-links">Wczytaj Herosów</a></li>
-
-                </ul>
-
-            </nav>
-
-            <div class="hero-banner">
-                <img src="images/home-slide01.jpg" alt="Hero Banner">
-            </div>
-        </header>
+        <div class="hero-banner"><img src="images/home-slide01.jpg" alt="Hero Banner" /></div>
+      </header>
     </div>
     <div class="hero-display">
-        <div class="hero-board">
-            <!-- <div class="hero"> -->
-                <!-- <div id="hero1">
-                    <img src="images/harley.jpg" alt="Harley Quinn">
-                </div>
-                <div>
-                    <h2>Harley Quinn</h2>
-                    <h3>50 PLN/h</h3>
-                </div>
+      <div class="hero-board">
+        <div id="basket-region" style="display: none">
+          <div class="basket-header">
+            <h3>Koszyk</h3>
+            <div>
+              Do zapłaty:
+              <strong id="basket-total">0</strong>
             </div>
-            <div class="hero">
-                <div id="hero2">
-                        <img src="images/spiderman.jpg" alt="Spiderman">
-                </div>
-                <div>
-                    <h2>Spiderman</h2>
-                    <h3>150 PLN/h</h3>
-                </div>
-            </div>
-            <div class="hero">
-                <div id="hero3">
-                    <img src="images/batman.jpg" alt="Batman">
-                </div>
-                <div>
-                    <h2>Batman</h2>
-                    <h3>350 PLN/h</h3>
-                </div>
-            </div>
-            <div class="hero">
-                <div id="hero4">
-                    <img src="images/ledman.jpg" alt="Ledman">
-                </div>
-                <div>
-                    <h2>Ledman</h2>
-                    <h3>30 PLN/h</h3>
-                </div>
-            </div>
-            <div class="hero">
-                <div id="hero5">
-                    <img id="hero5" src="images/neptun.jpg" alt="Neptun">
-                </div>
-                <div>
-                    <h2>Neptun</h2>
-                    <h3>1000 PLN/h</h3>
-                </div>
-            </div>
-            <div class="hero">
-                <div id="hero6">
-                    <img src="images/wonderwoman.jpg" alt="Wonder Woman">
-                </div>
-                <div>
-                    <h2>Wonder Woman</h2>
-                    <h3>800 PLN/h</h3>
-                </div>
-            </div> -->
-            <div id="heroesList-region"></div>
-                <div id="addHeroForm-region"></div>
-                <div id="heroesRemove-region"></div>
+          </div>
+          <div class="basket-content"></div>
         </div>
+        <div id="heroesList-region"></div>
+      </div>
     </div>
 
+    <footer>Herosi- Patronage</footer>
 
-    </div>
     <!-- modal -->
-    <div id="myModal" class="modal">
+    <div id="heroModal" class="modal">
+      <div class="modal-container">
+        <span class="close">&times;</span>
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-            <p>kkjkjk</p>
+          
         </div>
+      </div>
+    </div>
+    <div id="formModal" class="modal">
+      <div class="modal-container">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+          <form id="heroCreate-form">
+            <h1>Dodaj Herosa</h1>
+            <div class="form-field">
+              <input type="text" name="name" />
+              <label class="label-name" for="name">Nazwa Bohatera</label>
+            </div>
+            <div class="form-field">
+              <input type="text" name="photo" />
+              <label class="label-name" for="photo">Adres/nazwa zdjęcia</label>
+            </div>
+            <div class="form-field">
+              <input type="text" name="price" />
+              <label class="label-name" for="price">Cena wynajmu /h</label>
+            </div>
+            <div class="form-field">
+              <textarea></textarea>
+              <label class="label-name" for="textarea">Opis Bohatera</label>
+            </div>
+          </form>
+          <div class="submission-field">
+            <button class="button" type="button" id="submitHero-button"><span>Submit</span></button>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="js/store.js"></script>
-    <script src="js/hero-list.view.js"></script>
-    <script src="js/hero-create.view.js"></script>
-
-    <script src="js/app.view.js"></script>
-    <script src="js/app2.js"></script>
+    <script src="js/hero-list.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/basket.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/script.js"></script>
-    
-</body>
-<footer>
-    Herosi- Patronage
-</footer>
-
+  </body>
 </html>
